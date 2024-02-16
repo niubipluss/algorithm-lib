@@ -1,0 +1,30 @@
+// FILE: Coin-Change/CoinChange.go
+// AUTH: ydhmkpsryk321@gmail.com
+// DES: 2024-02-16 12:37:38
+package leetcode
+
+func coinChange(coins []int, amount int) int {
+	dp := make([]int, amount+1)
+	dp[0] = 0
+	for i := 1; i < len(dp); i++ {
+		dp[i] = amount + 1
+	}
+	for i := 1; i <= amount; i++ {
+		for j := 0; j < len(coins); j++ {
+			if coins[j] <= i {
+				dp[i] = min(dp[i], dp[i-coins[j]]+1)
+			}
+		}
+	}
+	if dp[amount] > amount {
+		return -1
+	}
+	return dp[amount]
+}
+
+func min(a int, b int) int {
+	if a > b {
+		return b
+	}
+	return a
+}
