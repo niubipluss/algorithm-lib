@@ -20,6 +20,7 @@ To use this toolkit in your Go project, you can simply import it using the `go g
 
 ```bash
 go get github.com/niubipluss/algorithm-lib
+```
 ## License
 
 This project is licensed under the [Apache-2.0 license](LICENSE).
